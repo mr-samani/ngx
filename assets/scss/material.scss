@@ -1,0 +1,38 @@
+@import "@angular/material/theming";
+$custom-typographyFa: mat-typography-config(
+    $font-family: "iranSans,Arial",
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(12px, 24px, 500),
+);
+$custom-typographyEn: mat-typography-config(
+    $font-family: "Axiforma,iranSans,Arial",
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(14px, 24px, 500),
+);
+body[dir="rtl"] {
+    margin: 0;
+    font-family: "iranSans", "Arial";
+    font-size: 12px;
+    // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+    @include mat-base-typography($custom-typographyFa);
+    // Override typography for a specific Angular Material components.
+    @include mat-checkbox-typography($custom-typographyFa);
+    // Override typography for all Angular Material, including mat-base-typography and all components.
+    @include angular-material-typography($custom-typographyFa);
+    // Override the typography in the core CSS.
+    // @include mat-core($custom-typographyFa);
+}
+
+body[dir="ltr"] {
+    margin: 0;
+    font-family: "Axiforma","iranSans", "Arial";
+    font-size: 12px;
+    // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+    @include mat-base-typography($custom-typographyEn);
+    // Override typography for a specific Angular Material components.
+    @include mat-checkbox-typography($custom-typographyEn);
+    // Override typography for all Angular Material, including mat-base-typography and all components.
+    @include angular-material-typography($custom-typographyEn);
+    // Override the typography in the core CSS.
+    // @include mat-core($custom-typographyEn);
+}
